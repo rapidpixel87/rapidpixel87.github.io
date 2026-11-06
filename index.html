@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>51爆料每日大赛大乱斗-每日爆料大乱斗_51爆料大赛热点汇总</title>
+<meta name="description" content="51爆料每日大赛大乱斗热点聚合页，按日汇总爆料大赛中的热门条目、争议焦点与网友讨论，帮助你快速了解当日大乱斗的看点与走向。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111a2b'/%3E%3Cpath d='M18 40l8-16 6 10 5-7 9 13z' fill='%23ff5a5f'/%3E%3Ccircle cx='46' cy='19' r='5' fill='%23ffcf5c'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --ink:#111a2b;
+    --ink-2:#2a3448;
+    --muted:#5d6879;
+    --line:#e3e7ee;
+    --paper:#f6f7f9;
+    --card:#ffffff;
+    --red:#ff5a5f;
+    --red-dark:#e04146;
+    --gold:#ffcf5c;
+    --radius:14px;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink-2);
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,-apple-system,sans-serif;
+    font-size:16px;
+    line-height:1.75;
+  }
+  a{color:inherit;text-decoration:none;}
+  img,svg{max-width:100%;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px;}
+
+  /* 页头 */
+  header.site{
+    background:var(--ink);
+    color:#fff;
+    position:sticky;top:0;z-index:20;
+    box-shadow:0 1px 0 rgba(255,255,255,.06);
+  }
+  .bar{display:flex;align-items:center;gap:18px;min-height:64px;flex-wrap:wrap;}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:17px;letter-spacing:.5px;color:#fff;white-space:nowrap;}
+  .logo .mark{width:34px;height:34px;flex:none;}
+  nav.main{margin-left:auto;display:flex;gap:20px;flex-wrap:wrap;font-size:15px;}
+  nav.main a{color:#c9d1df;padding:4px 0;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;}
+  nav.main a:hover,nav.main a:focus-visible{color:#fff;border-color:var(--red);}
+  .nav-toggle{display:none;}
+
+  /* 首屏 */
+  .hero{
+    background:
+      radial-gradient(900px 380px at 82% -10%, rgba(255,90,95,.28), transparent 60%),
+      radial-gradient(700px 320px at 6% 110%, rgba(255,207,92,.16), transparent 60%),
+      var(--ink);
+    color:#fff;
+    padding:52px 0 56px;
+    border-bottom:1px solid rgba(255,255,255,.07);
+  }
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;}
+  .kicker{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:13px;letter-spacing:1px;color:var(--gold);
+    border:1px solid rgba(255,207,92,.4);border-radius:999px;
+    padding:4px 12px;margin-bottom:18px;
+  }
+  .kicker .dot{width:7px;height:7px;border-radius:50%;background:var(--red);}
+  h1{
+    font-size:clamp(26px,4.1vw,42px);
+    line-height:1.28;
+    margin:0 0 16px;
+    font-weight:800;
+    letter-spacing:.5px;
+  }
+  .hero p.lead{margin:0 0 26px;color:#c3ccdb;font-size:16.5px;max-width:36em;}
+  .actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:12px 22px;border-radius:999px;font-weight:700;font-size:15px;
+    border:1px solid transparent;cursor:pointer;transition:transform .15s,background .2s;
+  }
+  .btn-primary{background:var(--red);color:#fff;}
+  .btn-primary:hover{background:var(--red-dark);transform:translateY(-1px);}
+  .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.32);}
+  .btn-ghost:hover{border-color:#fff;transform:translateY(-1px);}
+  .btn[aria-disabled="true"]{opacity:.62;pointer-events:none;}
+  .hero-art{display:flex;justify-content:center;}
+  .hero-art svg{width:100%;max-width:360px;height:auto;}
+
+  /* 搜索 */
+  .searchbar{
+    margin-top:30px;display:flex;gap:10px;flex-wrap:wrap;
+    background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);
+    padding:8px;border-radius:999px;max-width:520px;
+  }
+  .searchbar input{
+    flex:1 1 180px;min-width:0;background:transparent;border:0;outline:none;
+    color:#fff;font-size:15px;padding:8px 16px;font-family:inherit;
+  }
+  .searchbar input::placeholder{color:#93a0b4;}
+  .searchbar button{
+    border:0;border-radius:999px;padding:8px 20px;background:var(--gold);color:#3a2c00;
+    font-weight:700;font-size:14px;cursor:pointer;font-family:inherit;
+  }
+  .searchbar button:hover{filter:brightness(1.05);}
+
+  /* 通用区块 */
+  section.block{padding:52px 0 8px;}
+  .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:24px;flex-wrap:wrap;}
+  .sec-head h2{
+    font-size:clamp(20px,2.4vw,26px);margin:0;font-weight:800;color:var(--ink);
+    letter-spacing:.3px;position:relative;padding-left:14px;
+  }
+  .sec-head h2::before{
+    content:"";position:absolute;left:0;top:6px;bottom:6px;width:5px;border-radius:3px;
+    background:linear-gradient(180deg,var(--red),var(--gold));
+  }
+  .sec-head .hint{font-size:14px;color:var(--muted);margin:0;}
+
+  /* 今日焦点卡片 */
+  .focus-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:22px;display:flex;flex-direction:column;gap:10px;
+    transition:box-shadow .2s,transform .2s,border-color .2s;
+  }
+  .card:hover{box-shadow:0 10px 26px rgba(17,26,43,.09);transform:translateY(-2px);border-color:#d3dae6;}
+  .tag{
+    display:inline-block;font-size:12px;font-weight:700;letter-spacing:.5px;
+    padding:2px 10px;border-radius:999px;background:#fff0f0;color:var(--red-dark);
+    align-self:flex-start;
+  }
+  .tag.gold{background:#fff8e3;color:#8a6400;}
+  .tag.blue{background:#eef3ff;color:#2f4fa8;}
+  .card h3{margin:0;font-size:17.5px;color:var(--ink);line-height:1.5;font-weight:700;}
+  .card p{margin:0;font-size:14.5px;color:var(--muted);}
+  .card .meta{margin-top:auto;font-size:13px;color:#8a94a6;display:flex;gap:12px;flex-wrap:wrap;}
+
+  /* 时间线 */
+  .timeline{display:grid;gap:0;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;}
+  .tl-item{
+    display:grid;grid-template-columns:96px 1fr;gap:18px;padding:20px 24px;
+    border-bottom:1px solid var(--line);
+  }
+  .tl-item:last-child{border-bottom:0;}
+  .tl-time{font-size:13.5px;color:var(--red-dark);font-weight:800;letter-spacing:.5px;padding-top:2px;}
+  .tl-body h3{margin:0 0 6px;font-size:16.5px;color:var(--ink);font-weight:700;}
+  .tl-body p{margin:0;font-size:14.5px;color:var(--muted);}
+
+  /* 双栏 */
+  .split{display:grid;grid-template-columns:1.35fr .65fr;gap:24px;align-items:start;}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;}
+  .panel h3{margin:0 0 14px;font-size:17px;color:var(--ink);font-weight:800;}
+  .panel p{margin:0 0 14px;font-size:15px;}
+  .panel p:last-child{margin-bottom:0;}
+  .rank-list{list-style:none;margin:0;padding:0;counter-reset:rk;}
+  .rank-list li{
+    counter-increment:rk;display:flex;gap:12px;align-items:flex-start;
+    padding:11px 0;border-bottom:1px dashed var(--line);font-size:15px;
+  }
+  .rank-list li:last-child{border-bottom:0;}
+  .rank-list li::before{
+    content:counter(rk);flex:none;width:22px;height:22px;border-radius:6px;
+    background:var(--ink);color:#fff;font-size:12.5px;font-weight:800;
+    display:flex;align-items:center;justify-content:center;margin-top:3px;
+  }
+  .rank-list li:nth-child(1)::before{background:var(--red);}
+  .rank-list li:nth-child(2)::before{background:#ff8a5b;}
+  .rank-list li:nth-child(3)::before{background:var(--gold);color:#4a3800;}
+  .rank-list a:hover{color:var(--red-dark);}
+
+  /* 说明 / 规范 */
+  .rules{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+  .rule{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;}
+  .rule h3{margin:0 0 8px;font-size:16px;color:var(--ink);font-weight:800;display:flex;align-items:center;gap:8px;}
+  .rule h3 svg{width:18px;height:18px;flex:none;}
+  .rule p{margin:0;font-size:14.5px;color:var(--muted);}
+
+  /* 订阅条 */
+  .cta{
+    margin-top:44px;background:linear-gradient(120deg,#1a2438,#111a2b 60%);
+    color:#fff;border-radius:18px;padding:34px 30px;
+    display:flex;align-items:center;gap:24px;flex-wrap:wrap;justify-content:space-between;
+  }
+  .cta h2{margin:0 0 8px;font-size:21px;font-weight:800;letter-spacing:.3px;}
+  .cta p{margin:0;color:#b8c2d2;font-size:14.5px;max-width:48em;}
+
+  /* 页尾 */
+  footer.site{
+    margin-top:56px;background:var(--ink);color:#9aa6b8;padding:38px 0 30px;font-size:14px;
+  }
+  .foot-grid{display:flex;gap:30px;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;}
+  .foot-brand{display:flex;align-items:center;gap:10px;color:#fff;font-weight:800;font-size:16px;}
+  .foot-brand svg{width:30px;height:30px;}
+  .foot-nav{display:flex;gap:20px;flex-wrap:wrap;}
+  .foot-nav a:hover{color:#fff;}
+  .foot-note{margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,.09);font-size:13px;color:#7d8899;line-height:1.8;}
+
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-art{order:-1;max-width:260px;margin:0 auto;}
+    .focus-grid{grid-template-columns:1fr 1fr;}
+    .split{grid-template-columns:1fr;}
+  }
+  @media (max-width:640px){
+    body{font-size:15.5px;}
+    .bar{min-height:58px;gap:12px;}
+    nav.main{
+      margin-left:0;width:100%;gap:14px;font-size:14px;
+      padding-bottom:10px;overflow-x:auto;flex-wrap:nowrap;-webkit-overflow-scrolling:touch;
+    }
+    nav.main a{white-space:nowrap;}
+    .hero{padding:34px 0 40px;}
+    .hero-art{display:none;}
+    .focus-grid{grid-template-columns:1fr;}
+    .rules{grid-template-columns:1fr;}
+    .tl-item{grid-template-columns:1fr;gap:6px;padding:18px;}
+    .cta{padding:26px 20px;}
+    section.block{padding:38px 0 6px;}
+  }
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap bar">
+    <a class="logo" href="#top" aria-label="51爆料每日大赛大乱斗 首页">
+      <svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#1d2739"/>
+        <path d="M14 44l10-20 7 12 6-8 13 16z" fill="#ff5a5f"/>
+        <circle cx="47" cy="18" r="6" fill="#ffcf5c"/>
+      </svg>
+      <span>51爆料每日大赛大乱斗</span>
+    </a>
+    <nav class="main" aria-label="主导航">
+      <a href="#focus">今日焦点</a>
+      <a href="#timeline">爆料时间线</a>
+      <a href="#rank">热度排行</a>
+      <a href="#rules">吃瓜须知</a>
+      <a href="#subscribe">订阅提醒</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- 首屏 -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="kicker"><span class="dot"></span>今日场次 · 热点持续更新</span>
+        <h1>51爆料每日大赛大乱斗</h1>
+        <p class="lead">每天一场爆料大乱斗，把散落在各处的热门条目收拢到同一页：谁被推上风口、哪条说法出现反转、网友讨论集中在哪，按时间顺序看清楚，再决定要不要继续追。</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#focus">查看今日焦点
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13"/><path d="M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#timeline">按时间线浏览</a>
+        </div>
+        <form class="searchbar" role="search" id="searchForm" onsubmit="return false;">
+          <label for="kw" class="sr-only" style="position:absolute;left:-9999px;">搜索爆料条目</label>
+          <input id="kw" type="search" placeholder="输入关键词，如“反转”“截图”“回应”" autocomplete="off">
+          <button type="submit" id="searchBtn">筛选</button>
+        </form>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 360 300" role="presentation">
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ff5a5f"/>
+              <stop offset="1" stop-color="#ffcf5c"/>
+            </linearGradient>
+          </defs>
+          <circle cx="180" cy="150" r="118" fill="none" stroke="rgba(255,255,255,.10)" stroke-width="1.5"/>
+          <circle cx="180" cy="150" r="86" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="1.5" stroke-dasharray="6 8"/>
+          <rect x="70" y="96" width="220" height="122" rx="14" fill="#1b2537" stroke="rgba(255,255,255,.16)"/>
+          <rect x="88" y="116" width="92" height="10" rx="5" fill="url(#g1)"/>
+          <rect x="88" y="138" width="164" height="8" rx="4" fill="rgba(255,255,255,.24)"/>
+          <rect x="88" y="156" width="140" height="8" rx="4" fill="rgba(255,255,255,.16)"/>
+          <rect x="88" y="174" width="112" height="8" rx="4" fill="rgba(255,255,255,.12)"/>
+          <circle cx="266" cy="82" r="20" fill="#ff5a5f"/>
+          <path d="M266 72v14M266 92v2" stroke="#fff" stroke-width="3.4" stroke-linecap="round"/>
+          <circle cx="88" cy="242" r="7" fill="#ffcf5c"/>
+          <circle cx="120" cy="252" r="4" fill="rgba(255,255,255,.35)"/>
+          <circle cx="146" cy="242" r="3" fill="rgba(255,255,255,.22)"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- 今日焦点 -->
+  <section class="block" id="focus">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>今日焦点 · 三条主线</h2>
+        <p class="hint">每条只保留关键事实与当前走向，细节在时间线里展开</p>
+      </div>
+      <div class="focus-grid" id="focusGrid">
+
+        <article class="card">
+          <span class="tag">主线一</span>
+          <h3>截图流传后出现“原图对照”</h3>
+          <p>有网友贴出同一场景的另一角度图片，指出前一张存在裁剪。讨论重点从“内容真假”转向“传播时是否被断章取义”，双方暂时都没有给出完整说明。</p>
+          <div class="meta"><span>状态：待回应</span><span>讨论集中：图片完整性</span></div>
+        </article>
+
+        <article class="card">
+          <span class="tag gold">主线二</span>
+          <h3>当事方简短回应，未提及细节</h3>
+          <p>回应只有两句话，确认“已关注到相关讨论”，但没有说明时间、地点与具体过程。围观者普遍认为信息量有限，后续是否补充成为今日最大悬念。</p>
+          <div class="meta"><span>状态：回应已出</span><span>讨论集中：信息量</span></div>
+        </article>
+
+        <article class="card">
+          <span class="tag blue">主线三</span>
+          <h3>旧帖被翻出，时间线出现矛盾</h3>
+          <p>有人找到数月前的一条动态，与本次说法在日期上对不上。这条旧帖成了今天讨论的支点，但发布时间是否被修改过，目前没有可靠证据。</p>
+          <div class="meta"><span>状态：存疑</span><span>讨论集中：时间线</span></div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 时间线 -->
+  <section class="block" id="timeline">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>爆料时间线</h2>
+        <p class="hint">按出现顺序排列，越靠下越新</p>
+      </div>
+      <div class="timeline" id="timelineList">
+        <div class="tl-item">
+          <div class="tl-time">上午</div>
+          <div class="tl-body">
+            <h3>首条内容出现，配图模糊</h3>
+            <p>最早的一条爆料由小号发布，图片分辨率较低，文字描述偏向情绪表达，缺少可核对的时间与地点信息。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">午间</div>
+          <div class="tl-body">
+            <h3>多个账号转发，说法开始分叉</h3>
+            <p>转发过程中出现两个版本：一说发生在白天，一说发生在夜里。两个版本都没有附带原始来源，讨论由此变得混乱。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">下午</div>
+          <div class="tl-body">
+            <h3>原图对照帖上线，质疑裁剪</h3>
+            <p>有网友发布对照图，认为首条内容截掉了画面边缘，容易造成误解。该帖被大量引用，成为今天引用次数最多的单条内容之一。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">傍晚</div>
+          <div class="tl-body">
+            <h3>当事方两句话回应</h3>
+            <p>回应确认已关注讨论，但未提供更多细节。围观者希望在后续获得完整说明，目前仍处于等待状态。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">夜间</div>
+          <div class="tl-body">
+            <h3>旧帖被翻出，日期引发新疑问</h3>
+            <p>一条较早的动态被重新提起，与本次说法在时间上存在出入。是否有修改痕迹，尚需更完整的证据支撑。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 排行 + 解读 -->
+  <section class="block" id="rank">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>热度排行与今日解读</h2>
+        <p class="hint">排行依据页面内讨论引用次数，非平台官方数据</p>
+      </div>
+      <div class="split">
+        <div class="panel">
+          <h3>为什么今天值得跟</h3>
+          <p>51爆料每日大赛大乱斗的看点，往往不在单条内容本身，而在不同说法互相碰撞的过程。今天三条主线正好构成一个完整链条：先是画面被裁剪的质疑，接着是信息量有限的回应，最后是旧帖带来的时间线矛盾。三者叠加，让“到底发生了什么”这个问题更难一句话说清。</p>
+          <p>对普通围观者来说，比较稳妥的做法是先分清哪些是已确认的事实、哪些只是转述。目前已确认的只有回应本身的存在；图片的完整性、旧帖的发布时间、事件的具体场景，都还停留在讨论阶段。把这三类信息分开看，就不容易被单条内容带着走。</p>
+          <p>这也是每日大乱斗栏目的基本节奏：不追求给出结论，而是把当天的材料按顺序摆好，让读者自己判断哪些线索值得继续跟。如果后续出现新的说明或更清晰的素材，时间线会在下一场继续补充。</p>
+        </div>
+        <div class="panel">
+          <h3>今日条目热度</h3>
+          <ol class="rank-list">
+            <li><a href="#timeline">原图对照帖：质疑裁剪</a></li>
+            <li><a href="#timeline">当事方两句话回应</a></li>
+            <li><a href="#timeline">旧帖日期矛盾</a></li>
+            <li><a href="#focus">首条爆料配图模糊</a></li>
+            <li><a href="#focus">转发过程中说法分叉</a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 吃瓜须知 -->
+  <section class="block" id="rules">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>吃瓜须知</h2>
+        <p class="hint">看热闹之前，先给自己定几条规矩</p>
+      </div>
+      <div class="rules">
+        <div class="rule">
+          <h3>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#ff5a5f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+            分清事实与转述
+          </h3>
+          <p>页面里标为“已确认”的内容，只包括当事方公开发声这一层。其余如图片细节、时间地点，都属于转述或推测，阅读时请自行区分。</p>
+        </div>
+        <div class="rule">
+          <h3>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#2f4fa8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16"/><path d="M4 12h10"/><path d="M4 18h7"/></svg>
+            不替当事人下结论
+          </h3>
+          <p>单条截图、单句回应都不足以还原全貌。51爆料每日大赛大乱斗汇总的是讨论现状，不是裁决结果，请避免把猜测当成定论转出去。</p>
+        </div>
+        <div class="rule">
+          <h3>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#8a6400" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.6 5.6L20 9.6l-4 4 1 6-5-2.7-5 2.7 1-6-4-4 5.4-1z"/></svg>
+            关注更新而不是旧图
+          </h3>
+          <p>同一张图反复传播时，信息增量往往为零。把注意力放在新出现的说明与材料上，比在旧图上反复争论更有效率。</p>
+        </div>
+        <div class="rule">
+          <h3>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#5d6879" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 15l4-4 3 3 4-6"/></svg>
+            按时间顺序回看
+          </h3>
+          <p>当说法前后矛盾时，回到时间线往往比看最新一条更有用。日期、顺序、谁先谁后，是判断可信度最朴素的线索。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 订阅 -->
+  <section class="block" id="subscribe">
+    <div class="wrap">
+      <div class="cta">
+        <div>
+          <h2>每天一场，别错过下一场大乱斗</h2>
+          <p>51爆料每日大赛大乱斗按日更新焦点、时间线与热度变化。收藏本页即可随时回看当天材料；需要离线留档的读者，可先下载页面摘要。</p>
+        </div>
+        <div class="actions">
+          <a class="btn btn-primary" href="#" data-download-placeholder="true" aria-disabled="true" tabindex="-1">下载</a>
+          <a class="btn btn-ghost" href="#top">回到顶部</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <rect width="64" height="64" rx="14" fill="#1d2739"/>
+          <path d="M14 44l10-20 7 12 6-8 13 16z" fill="#ff5a5f"/>
+          <circle cx="47" cy="18" r="6" fill="#ffcf5c"/>
+        </svg>
+        <span>51爆料每日大赛大乱斗</span>
+      </div>
+      <nav class="foot-nav" aria-label="页尾导航">
+        <a href="#focus">今日焦点</a>
+        <a href="#timeline">爆料时间线</a>
+        <a href="#rank">热度排行</a>
+        <a href="#rules">吃瓜须知</a>
+        <a href="#subscribe">订阅提醒</a>
+      </nav>
+    </div>
+    <p class="foot-note">本页为 51爆料每日大赛大乱斗 的热点内容聚合首页，所载条目均来自公开讨论的转述，具体细节以当事人正式说明为准。页面内容随每日场次更新，不代表对任何一方的定性判断。</p>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var form = document.getElementById('searchForm');
+    var input = document.getElementById('kw');
+    var grid = document.getElementById('focusGrid');
+    var tl = document.getElementById('timelineList');
+    if(!form || !input) return;
+    function run(){
+      var q = input.value.trim().toLowerCase();
+      var nodes = [].slice.call(document.querySelectorAll('#focusGrid .card, #timelineList .tl-item'));
+      var shown = 0;
+      nodes.forEach(function(n){
+        var hit = !q || n.textContent.toLowerCase().indexOf(q) > -1;
+        n.style.display = hit ? '' : 'none';
+        if(hit) shown++;
+      });
+      var empty = document.getElementById('emptyTip');
+      if(shown === 0){
+        if(!empty){
+          empty = document.createElement('p');
+          empty.id = 'emptyTip';
+          empty.style.cssText = 'grid-column:1/-1;color:#5d6879;font-size:14.5px;margin:6px 0 0;';
+          empty.textContent = '没有匹配的条目，换个关键词再试，例如“回应”“旧帖”。';
+          grid.parentNode.insertBefore(empty, grid.nextSibling);
+        }
+      }else if(empty){
+        empty.remove();
+      }
+    }
+    form.addEventListener('submit', function(e){ e.preventDefault(); run(); });
+    input.addEventListener('input', run);
+  })();
+</script>
+</body>
+</html>
