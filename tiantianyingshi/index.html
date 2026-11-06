@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>天天影视网-天天影视网电影电视剧在线观看_天天影视网影视资源片库</title>
+<meta name="description" content="天天影视网首页，汇集电影、电视剧、综艺、动漫等影视资源分类入口，提供片库浏览、热度排行与搜索筛选，帮助访客快速找到想看的影视内容。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111827'/%3E%3Cpath d='M22 18v28l24-14z' fill='%23f5b942'/%3E%3Crect x='14' y='12' width='36' height='4' rx='2' fill='%23f5b942' opacity='.5'/%3E%3Crect x='14' y='48' width='36' height='4' rx='2' fill='%23f5b942' opacity='.5'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#0d1017;
+  --bg-soft:#141a24;
+  --card:#182030;
+  --line:rgba(255,255,255,.08);
+  --text:#e8ecf3;
+  --muted:#9aa5b5;
+  --gold:#f5b942;
+  --gold-deep:#e09b1f;
+  --teal:#4fd1c5;
+  --radius:14px;
+  --maxw:1160px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img,svg{display:block}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+
+/* ---------- Header ---------- */
+header.site{
+  position:sticky;top:0;z-index:50;
+  background:rgba(13,16,23,.88);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.head-inner{display:flex;align-items:center;gap:28px;height:68px}
+.brand{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.brand svg{width:34px;height:34px}
+.brand-text{font-size:19px;font-weight:700;letter-spacing:.5px;color:var(--text)}
+.brand-text em{font-style:normal;color:var(--gold)}
+nav.main{display:flex;gap:22px;margin-left:auto;font-size:14.5px}
+nav.main a{color:var(--muted);padding:6px 0;position:relative;transition:color .2s}
+nav.main a:hover,nav.main a:focus-visible{color:var(--gold)}
+nav.main a::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--gold);transition:width .25s}
+nav.main a:hover::after{width:100%}
+.search-mini{display:flex;align-items:center;gap:8px;background:var(--bg-soft);border:1px solid var(--line);border-radius:999px;padding:6px 6px 6px 14px}
+.search-mini input{background:transparent;border:0;color:var(--text);font-size:13.5px;width:120px;outline:none;font-family:inherit}
+.search-mini input::placeholder{color:#6b7688}
+.search-mini button{
+  background:var(--gold);color:#1a1206;border:0;border-radius:999px;
+  font-size:13px;font-weight:600;padding:5px 12px;cursor:pointer;font-family:inherit;
+}
+.search-mini button:hover{background:var(--gold-deep)}
+.menu-btn{display:none;background:none;border:1px solid var(--line);border-radius:8px;color:var(--text);padding:6px 10px;font-family:inherit;font-size:13px;cursor:pointer}
+
+/* ---------- Hero ---------- */
+.hero{
+  position:relative;overflow:hidden;
+  padding:64px 0 56px;
+  background:
+    radial-gradient(900px 380px at 82% -10%,rgba(245,185,66,.16),transparent 62%),
+    radial-gradient(700px 320px at 8% 110%,rgba(79,209,197,.10),transparent 60%),
+    var(--bg);
+  border-bottom:1px solid var(--line);
+}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:2px;color:var(--gold);border:1px solid rgba(245,185,66,.35);border-radius:999px;padding:4px 14px;margin-bottom:20px}
+h1{font-size:clamp(30px,4.4vw,46px);line-height:1.22;font-weight:800;letter-spacing:.5px}
+h1 span{color:var(--gold)}
+.hero p.lead{color:var(--muted);font-size:15.5px;max-width:36em;margin-top:18px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:11px 24px;border-radius:999px;font-size:14.5px;font-weight:600;
+  transition:transform .18s,background .2s,color .2s;cursor:pointer;border:1px solid transparent;
+}
+.btn-primary{background:var(--gold);color:#1a1206}
+.btn-primary:hover{background:var(--gold-deep);transform:translateY(-2px)}
+.btn-ghost{border-color:rgba(255,255,255,.22);color:var(--text)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+.hero-stats{display:flex;gap:30px;margin-top:34px;flex-wrap:wrap}
+.hero-stats div strong{display:block;font-size:22px;color:var(--gold);font-weight:700}
+.hero-stats div span{font-size:12.5px;color:var(--muted);letter-spacing:.5px}
+
+.hero-visual{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:22px;
+  padding:20px;
+  box-shadow:0 24px 60px -28px rgba(0,0,0,.9);
+  transform:rotate(1.4deg);
+}
+.screen{
+  border-radius:14px;overflow:hidden;
+  background:linear-gradient(150deg,#1f2941,#121826 70%);
+  aspect-ratio:16/9;position:relative;display:flex;align-items:center;justify-content:center;
+}
+.screen svg{width:64px;height:64px}
+.screen::after{
+  content:"正在放映 · 片库精选";position:absolute;left:14px;bottom:12px;
+  font-size:12px;color:rgba(232,236,243,.72);letter-spacing:1px;
+}
+.reel-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:14px}
+.reel-row span{height:34px;border-radius:8px;background:rgba(255,255,255,.06)}
+.reel-row span:nth-child(2){background:rgba(245,185,66,.26)}
+.reel-row span:nth-child(3){background:rgba(79,209,197,.20)}
+
+/* ---------- Section base ---------- */
+section.block{padding:62px 0;border-bottom:1px solid var(--line)}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:32px;flex-wrap:wrap}
+.sec-head h2{font-size:clamp(21px,2.4vw,27px);font-weight:700;letter-spacing:.5px;position:relative;padding-left:16px}
+.sec-head h2::before{content:"";position:absolute;left:0;top:8px;bottom:8px;width:4px;border-radius:2px;background:var(--gold)}
+.sec-head p{color:var(--muted);font-size:14px;max-width:44em;margin-top:8px}
+.sec-head .more{font-size:13.5px;color:var(--gold);white-space:nowrap;border-bottom:1px dashed rgba(245,185,66,.5);padding-bottom:2px}
+
+/* ---------- Category cards ---------- */
+.cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.cat-card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px 20px;transition:transform .2s,border-color .2s;
+}
+.cat-card:hover{transform:translateY(-4px);border-color:rgba(245,185,66,.45)}
+.cat-card .ico{width:40px;height:40px;border-radius:10px;background:rgba(245,185,66,.12);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.cat-card .ico svg{width:22px;height:22px}
+.cat-card h3{font-size:16px;font-weight:600;margin-bottom:6px}
+.cat-card p{font-size:13px;color:var(--muted);line-height:1.65}
+.cat-card .count{display:inline-block;margin-top:12px;font-size:12px;color:var(--teal);letter-spacing:.5px}
+
+/* ---------- Ranking ---------- */
+.rank-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:26px}
+.rank-list{list-style:none;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.rank-list li{display:flex;align-items:center;gap:14px;padding:13px 18px;border-bottom:1px solid var(--line);font-size:14.2px}
+.rank-list li:last-child{border-bottom:0}
+.rank-list li:hover{background:rgba(255,255,255,.03)}
+.rank-no{width:24px;flex-shrink:0;font-weight:700;color:#5c6675;font-size:13px;text-align:center}
+.rank-list li:nth-child(-n+3) .rank-no{color:var(--gold)}
+.rank-title{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rank-tag{font-size:11.5px;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:1px 8px;flex-shrink:0}
+.rank-heat{font-size:12px;color:var(--teal);flex-shrink:0}
+.rank-side{display:flex;flex-direction:column;gap:16px}
+.side-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+.side-card h3{font-size:15.5px;font-weight:600;margin-bottom:10px;color:var(--gold)}
+.side-card p{font-size:13.5px;color:var(--muted)}
+
+/* ---------- Search / filter ---------- */
+.filter-bar{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px;align-items:center}
+.chip{
+  border:1px solid var(--line);background:var(--bg-soft);color:var(--muted);
+  border-radius:999px;padding:6px 16px;font-size:13.2px;cursor:pointer;font-family:inherit;
+  transition:all .18s;
+}
+.chip:hover{color:var(--text);border-color:rgba(255,255,255,.25)}
+.chip.active{background:var(--gold);color:#1a1206;border-color:var(--gold);font-weight:600}
+.filter-input{
+  margin-left:auto;display:flex;gap:8px;align-items:center;
+}
+.filter-input input{
+  background:var(--bg-soft);border:1px solid var(--line);border-radius:999px;
+  padding:8px 16px;color:var(--text);font-size:13.5px;outline:none;width:190px;font-family:inherit;
+}
+.filter-input input:focus{border-color:rgba(245,185,66,.55)}
+.pick-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.pick-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:transform .2s,border-color .2s}
+.pick-card:hover{transform:translateY(-4px);border-color:rgba(245,185,66,.4)}
+.pick-thumb{aspect-ratio:16/9;background:linear-gradient(140deg,#233049,#141a24);display:flex;align-items:center;justify-content:center;position:relative}
+.pick-thumb svg{width:38px;height:38px;opacity:.85}
+.pick-thumb .badge{position:absolute;top:10px;left:10px;font-size:11.5px;background:rgba(245,185,66,.92);color:#1a1206;border-radius:5px;padding:1px 8px;font-weight:600}
+.pick-body{padding:14px 16px 16px}
+.pick-body h3{font-size:15px;font-weight:600;margin-bottom:4px}
+.pick-body p{font-size:12.8px;color:var(--muted);line-height:1.6}
+.pick-meta{display:flex;gap:10px;margin-top:10px;font-size:12px;color:#6f7b8d}
+.no-result{display:none;padding:26px;text-align:center;color:var(--muted);font-size:14px;border:1px dashed var(--line);border-radius:var(--radius)}
+
+/* ---------- About / guide ---------- */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px}
+.about-text p{color:var(--muted);font-size:14.6px;margin-bottom:14px}
+.about-text p strong{color:var(--text);font-weight:600}
+.faq{display:flex;flex-direction:column;gap:12px}
+.faq details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px}
+.faq summary{cursor:pointer;font-size:14.5px;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:10px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--gold);font-size:18px;line-height:1}
+.faq details[open] summary::after{content:"–"}
+.faq details p{font-size:13.6px;color:var(--muted);margin-top:10px;line-height:1.75}
+
+/* ---------- Download strip ---------- */
+.dl-strip{
+  display:flex;align-items:center;gap:24px;flex-wrap:wrap;justify-content:space-between;
+  background:linear-gradient(120deg,rgba(245,185,66,.14),rgba(79,209,197,.08));
+  border:1px solid rgba(245,185,66,.28);border-radius:18px;padding:28px 30px;
+}
+.dl-strip h3{font-size:18px;font-weight:700;margin-bottom:6px}
+.dl-strip p{font-size:13.6px;color:var(--muted);max-width:40em}
+.dl-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--gold);color:#1a1206;font-weight:700;font-size:14.5px;
+  border-radius:999px;padding:11px 26px;pointer-events:none;opacity:.92;
+}
+
+/* ---------- Footer ---------- */
+footer.site{background:#0a0d13;border-top:1px solid var(--line);padding:44px 0 30px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px}
+.foot-brand{display:flex;align-items:center;gap:9px;margin-bottom:12px}
+.foot-brand svg{width:28px;height:28px}
+.foot-brand span{font-size:16px;font-weight:700}
+footer.site p,footer.site a{font-size:13.2px;color:#7d8899}
+footer.site h4{font-size:13.5px;color:var(--text);margin-bottom:12px;font-weight:600}
+.foot-links{list-style:none;display:flex;flex-direction:column;gap:8px}
+.foot-links a:hover{color:var(--gold)}
+.foot-bottom{margin-top:34px;padding-top:18px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:12.5px;color:#5f6a7a}
+
+/* ---------- Responsive ---------- */
+@media (max-width:980px){
+  .hero-grid{grid-template-columns:1fr;gap:34px}
+  .hero-visual{transform:none;max-width:520px}
+  .cat-grid{grid-template-columns:repeat(2,1fr)}
+  .rank-grid{grid-template-columns:1fr}
+  .pick-grid{grid-template-columns:repeat(2,1fr)}
+  .about-grid{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:760px){
+  nav.main{display:none}
+  .search-mini{display:none}
+  .menu-btn{display:block;margin-left:auto}
+  nav.main.open{
+    display:flex;position:absolute;top:68px;left:0;right:0;
+    flex-direction:column;gap:0;background:#101620;border-bottom:1px solid var(--line);
+    padding:8px 22px 16px;
+  }
+  nav.main.open a{padding:11px 0;border-bottom:1px solid var(--line);color:var(--text)}
+  .head-inner{position:relative;height:64px}
+  .hero{padding:44px 0 40px}
+  section.block{padding:46px 0}
+  .pick-grid{grid-template-columns:1fr}
+  .hero-stats{gap:22px}
+  .filter-input{margin-left:0;width:100%}
+  .filter-input input{width:100%}
+  .dl-strip{padding:22px}
+  .foot-grid{grid-template-columns:1fr;gap:26px}
+}
+@media (max-width:420px){
+  .cat-grid{grid-template-columns:1fr}
+}
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap head-inner">
+    <a class="brand" href="#top" aria-label="天天影视网 首页">
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#182030"/>
+        <path d="M22 18v28l24-14z" fill="#f5b942"/>
+        <rect x="14" y="12" width="36" height="4" rx="2" fill="#f5b942" opacity=".45"/>
+        <rect x="14" y="48" width="36" height="4" rx="2" fill="#f5b942" opacity=".45"/>
+      </svg>
+      <span class="brand-text">天天影视<em>网</em></span>
+    </a>
+    <nav class="main" id="navMain">
+      <a href="#categories">影视分类</a>
+      <a href="#ranking">热播排行</a>
+      <a href="#picks">片库精选</a>
+      <a href="#about">站点说明</a>
+      <a href="#faq">常见疑问</a>
+    </nav>
+    <form class="search-mini" role="search" onsubmit="return false;">
+      <input type="search" id="quickSearch" placeholder="搜索片名 / 类型" aria-label="搜索影视内容">
+      <button type="button" id="quickSearchBtn">搜索</button>
+    </form>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navMain">菜单</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">影视资源 · 分类片库</span>
+        <h1>天天影视网</h1>
+        <p class="lead">天天影视网是一个按类型组织影视内容的浏览入口。电影、电视剧、综艺、动漫分区陈列，访客可以从分类、排行或片库精选三条路径进入，快速定位想看的影片与剧集。</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#picks">进入片库精选
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#ranking">查看热播排行</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>4</strong><span>内容大类</span></div>
+          <div><strong>16</strong><span>片库精选条目</span></div>
+          <div><strong>每日</strong><span>排行更新</span></div>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="screen">
+          <svg viewBox="0 0 24 24" fill="#f5b942"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <div class="reel-row"><span></span><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories -->
+  <section class="block" id="categories">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2>影视分类浏览</h2>
+          <p>天天影视网把片库拆成四个大区，每个大区再按题材细分。先选类型，再看条目，是本站最常见的浏览顺序。</p>
+        </div>
+        <a class="more" href="#picks">前往片库精选</a>
+      </div>
+      <div class="cat-grid">
+        <article class="cat-card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#f5b942" stroke-width="1.8"><rect x="2.5" y="6" width="19" height="13" rx="2"/><path d="M7 6l3-3M13 6l3-3M2.5 11h19"/></svg></div>
+          <h3>电影</h3>
+          <p>剧情、动作、科幻、悬疑等题材影片，按年份与口碑整理成片单，适合想一次看完一部完整作品的访客。</p>
+          <span class="count">剧情 · 动作 · 科幻 · 悬疑</span>
+        </article>
+        <article class="cat-card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#4fd1c5" stroke-width="1.8"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+          <h3>电视剧</h3>
+          <p>国产剧、港台剧与海外剧分列，标注集数与更新节奏，追更的访客可以按连载状态挑选。</p>
+          <span class="count">国产 · 港台 · 海外</span>
+        </article>
+        <article class="cat-card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#f5b942" stroke-width="1.8"><path d="M12 3l2.6 5.6 6.1.8-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L3.3 9.4l6.1-.8z"/></svg></div>
+          <h3>综艺</h3>
+          <p>真人秀、访谈、音乐与生活类节目，按季划分，便于按整季连续观看或挑选单期回看。</p>
+          <span class="count">真人秀 · 访谈 · 音乐</span>
+        </article>
+        <article class="cat-card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#4fd1c5" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9.5h.01M15 9.5h.01"/></svg></div>
+          <h3>动漫</h3>
+          <p>日漫、国漫与剧场版动画，按连载与完结区分，适合偏好动画叙事与系列作品的观众。</p>
+          <span class="count">日漫 · 国漫 · 剧场版</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ranking -->
+  <section class="block" id="ranking">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2>热播排行</h2>
+          <p>排行依据站内浏览热度整理，每天更新一次。名次用于辅助选择，不代表内容评价。</p>
+        </div>
+        <a class="more" href="#picks">按分类找片</a>
+      </div>
+      <div class="rank-grid">
+        <ol class="rank-list">
+          <li><span class="rank-no">1</span><span class="rank-title">长街灯火</span><span class="rank-tag">电视剧</span><span class="rank-heat">热度 98</span></li>
+          <li><span class="rank-no">2</span><span class="rank-title">风起北岸</span><span class="rank-tag">电影</span><span class="rank-heat">热度 95</span></li>
+          <li><span class="rank-no">3</span><span class="rank-title">山野食光</span><span class="rank-tag">综艺</span><span class="rank-heat">热度 92</span></li>
+          <li><span class="rank-no">4</span><span class="rank-title">星港来信</span><span class="rank-tag">动漫</span><span class="rank-heat">热度 89</span></li>
+          <li><span class="rank-no">5</span><span class="rank-title">春日慢车</span><span class="rank-tag">电视剧</span><span class="rank-heat">热度 86</span></li>
+          <li><span class="rank-no">6</span><span class="rank-title">雾中航线</span><span class="rank-tag">电影</span><span class="rank-heat">热度 83</span></li>
+          <li><span class="rank-no">7</span><span class="rank-title">今晚开麦</span><span class="rank-tag">综艺</span><span class="rank-heat">热度 80</span></li>
+          <li><span class="rank-no">8</span><span class="rank-title">纸鸢少年</span><span class="rank-tag">动漫</span><span class="rank-heat">热度 77</span></li>
+        </ol>
+        <div class="rank-side">
+          <div class="side-card">
+            <h3>排行怎么用</h3>
+            <p>如果只是随便看看，从第 1 到第 5 名开始最省时间；如果已有偏好类型，先到分类区筛选，再回来看该类型在排行中的位置，比逐条翻页更高效。</p>
+          </div>
+          <div class="side-card">
+            <h3>更新说明</h3>
+            <p>天天影视网的排行按日刷新，新上线条目会在次日进入统计。热度数值为站内相对指标，用于同榜条目之间的比较。</p>
+          </div>
+          <div class="side-card">
+            <h3>片库体量</h3>
+            <p>当前片库覆盖电影、电视剧、综艺、动漫四类，精选条目 16 部，分类题材 10 余种，后续按更新节奏补充。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Picks with filter -->
+  <section class="block" id="picks">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2>片库精选</h2>
+          <p>从四个大类中各挑出代表条目，可按类型筛选，也可直接输入片名查找。筛选结果即时呈现，无需跳转。</p>
+        </div>
+      </div>
+      <div class="filter-bar" role="group" aria-label="分类筛选">
+        <button class="chip active" data-cat="all">全部</button>
+        <button class="chip" data-cat="电影">电影</button>
+        <button class="chip" data-cat="电视剧">电视剧</button>
+        <button class="chip" data-cat="综艺">综艺</button>
+        <button class="chip" data-cat="动漫">动漫</button>
+        <div class="filter-input">
+          <input type="search" id="pickSearch" placeholder="输入片名关键词" aria-label="按片名筛选">
+        </div>
+      </div>
+      <div class="pick-grid" id="pickGrid">
+        <article class="pick-card" data-cat="电影" data-title="风起北岸">
+          <div class="pick-thumb"><span class="badge">电影</span><svg viewBox="0 0 24 24" fill="none" stroke="#f5b942" stroke-width="1.6"><path d="M3 17c3-6 6-9 9-9s6 3 9 9"/><circle cx="12" cy="7" r="2.4"/></svg></div>
+          <div class="pick-body"><h3>风起北岸</h3><p>沿海小城的家族故事，以四季更替串起两代人的选择。</p><div class="pick-meta"><span>剧情</span><span>128 分钟</span></div></div>
+        </article>
+        <article class="pick-card" data-cat="电影" data-title="雾中航线">
+          <div class="pick-thumb"><span class="badge">电影</span><svg viewBox="0 0 24 24" fill="none" stroke="#f5b942" stroke-width="1.6"><rect x="2.5" y="6" width="19" height="13" rx="2"/><path d="M2.5 11h19"/></svg></div>
+          <div class="pick-body"><h3>雾中航线</h3><p>夜航船上的悬疑故事，节奏紧凑，适合一次看完。</p><div class="pick-meta"><span>悬疑</span><span>112 分钟</span></div></div>
+        </article>
+        <article class="pick-card" data-cat="电影" data-title="雪岭归途">
+          <div class="pick-thumb"><span class="badge">电影</span><svg viewBox="0 0 24 24" fill="none" stroke="#f5b942" stroke-width="1.6"><path d="M3 19l6-12 4 7 3-4 5 9z"/></svg></div>
+          <div class="pick-body"><h3>雪岭归途</h3><p>公路片结构，讲述一次横跨高原的返乡旅程。</p><div class="pick-meta"><span>剧情</span><span>104 分钟</span></div></div>
+        </article>
+        <article class="pick-card" data-cat="电视剧" data-title="长街灯火">
+          <div class="pick-thumb"><span class="badge">电视剧</span><svg viewBox="0 0 24 24" fill="none" stroke="#4fd1c5" stroke-width="1.6"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+          <div class="pick-body"><h3>长街灯火</h3><p>老城区改造背景下的人情群像，共 36 集，已在连载末段。</p><div class="pick-meta"><span>都市</span><span>36 集</span></div></div>
+        </article>
+        <article class="pick-card" data-cat="电视剧" data-title="春日慢车">
+          <div class="pick-thumb"><span class="badge">电视剧</span><svg viewBox="0 0 24 24" fill="none" stroke="#4fd1c5" stroke-width="1.6"><path d="M4 18h16M6 18V9l6-4 6 4v9"/></svg></div>
+          <div class="pick-body"><h3>春日慢车</h3><p>两代人经营一间小车站的日常，节奏舒缓，24 集完结。</p><div class="pick-meta"><span>家庭</span><span>24 集</span></div></div>
+        </article>
+        <article class="pick-card" data-cat="电视剧" data-title="旧港来信">
+          <div class="pick-thumb"><span class="badge">电视剧</span><svg viewBox="0 0 24 24" fill="none" stroke="#4fd1c5" stroke-width="1.6"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M4 8l8 5 8-5"/></svg></div>
+          <div class="pick-body"><h3>旧港来信</h3><p>以书信为线索的年代剧，适合喜欢慢叙事的观众。</p><div class="pick-meta"><span>年代</span><span>30 集</span></div></div>
+        </article>
+        <article class="pick-card" data-cat="综艺" data-title="山野食光">
+          <div class="pick-thumb"><span class="badge">综艺</span><svg viewBox="0 0 24 24" fill="none" stroke="#f5b942" stroke-width="1.6"><path d="M6 3v8a3 3 0 006 0V3M9 11v10M16 3c-1.5 2-2 4-2 6s.5 3 2 3v9"/></svg></div>
+          <div class="pick-body"><h3>山野食光</h3><p>在山村取景的生活类节目，按季播出，适合下饭观看。</p><div class="pick-meta"><span>生活</span><span>第 2 季</span></div></div>
+        </article>
+        <article class="pick-card" data-cat="综艺" data-title="今晚开麦">
+          <div class="pick-thumb"><span class="badge">综艺</span><svg viewBox="0 0 24 24" fill="none" stroke="#f5b942" stroke-width="1.6"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0014 0M12 18v3"/></svg></div>
+          <div class="pick-body"><h3>今晚开麦</h3><p>音乐现场与幕后访谈结合，每期一位主咖。</p><div class="pick-meta"><span>音乐</span><span>第 1 季</span></div></div>
+        </article>
+        <article class="pick-card" data-cat="综艺" data-title="城市漫游者">
+          <div class="pick-thumb"><span class="badge">综艺</span><svg viewBox="0 0 24 24" fill="none" stroke="#f5b942" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/></svg></div>
+          <div class="pick-body"><h3>城市漫游者</h3><p>以步行方式记录城市街区，单集独立成篇。</p><div class="pick-meta"><span>纪实</span><span>12 期</span></div></div>
+        </article>
+        <article class="pick-card" data-cat="动漫" data-title="星港来信">
+          <div class="pick-thumb"><span class="badge">动漫</span><svg viewBox="0 0 24 24" fill="none" stroke="#4fd1c5" stroke-width="1.6"><path d="M12 3l2.3 5.2 5.7.6-4.3 3.9 1.2 5.6L12 15.5 7.1 18.3l1.2-5.6L4 8.8l5.7-.6z"/></svg></div>
+          <div class="pick-body"><h3>星港来信</h3><p>科幻设定下的成长故事，主线与单元剧情并行。</p><div class="pick-meta"><span>科幻</span><span>24 话</span></div></div>
+        </article>
+        <article class="pick-card" data-cat="动漫" data-title="纸鸢少年">
+          <div class="pick-thumb"><span class="badge">动漫</span><svg viewBox="0 0 24 24" fill="none" stroke="#4fd1c5" stroke-width="1.6"><path d="M12 3l6 6-6 6-6-6z"/><path d="M12 15v6"/></svg></div>
+          <div class="pick-body"><h3>纸鸢少年</h3><p>校园与竞技元素结合，节奏轻快，适合连续追看。</p><div class="pick-meta"><span>青春</span><span>26 话</span></div></div>
+        </article>
+        <article class="pick-card" data-cat="动漫" data-title="海底邮局">
+          <div class="pick-thumb"><span class="badge">动漫</span><svg viewBox="0 0 24 24" fill="none" stroke="#4fd1c5" stroke-width="1.6"><path d="M2 12c4-5 8-7 12-7s6 2 8 7c-2 5-4 7-8 7s-8-2-12-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
+          <div class="pick-body"><h3>海底邮局</h3><p>以奇幻设定展开的治愈系作品，单元结构清晰。</p><div class="pick-meta"><span>奇幻</span><span>12 话</span></div></div>
+        </article>
+      </div>
+      <div class="no-result" id="noResult">没有匹配的条目，换个关键词或切换分类试试。</div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="block" id="about">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2>天天影视网怎么用</h2>
+          <p>本站是影视内容的分类浏览入口，不承担播放以外的额外功能。下面说明三条主要路径与使用要点。</p>
+        </div>
+      </div>
+      <div class="about-grid">
+        <div class="about-text">
+          <p><strong>按分类进入。</strong>如果已经知道想看哪一类，从影视分类区选电影、电视剧、综艺或动漫，再按题材细分，是路径最短的方式。</p>
+          <p><strong>按排行进入。</strong>没有明确目标时，热播排行提供了一份按站内热度排序的清单，前几名通常更新更频繁，适合作为起点。</p>
+          <p><strong>按片库精选进入。</strong>片库精选把四类内容混合陈列，并支持类型筛选与片名搜索。想比较不同类别的条目时，这种方式更直观。</p>
+          <p>天天影视网的内容以分类与条目为主线，页面不设账号体系，浏览与筛选都在当前页面完成。片库条目会按更新节奏增补，排行与精选同步调整。</p>
+        </div>
+        <div class="faq" id="faq">
+          <details open>
+            <summary>片库里的条目会持续增加吗？</summary>
+            <p>会。天天影视网按分类补充条目，新增内容先进入对应分类，再参与后续的排行统计与精选陈列。</p>
+          </details>
+          <details>
+            <summary>排行名次代表什么？</summary>
+            <p>名次来自站内浏览热度的相对排序，每天刷新一次，只用于辅助选择，不构成对内容的评价。</p>
+          </details>
+          <details>
+            <summary>筛选和搜索有什么区别？</summary>
+            <p>分类按钮按类型缩小范围，搜索框按片名关键词匹配。两者可以叠加使用，结果会即时显示在下方。</p>
+          </details>
+          <details>
+            <summary>页面在手机上能正常浏览吗？</summary>
+            <p>可以。导航、卡片与筛选控件针对小屏做了重排，首屏优先呈现站点名称与主要入口，便于单手操作。</p>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download strip -->
+  <section class="block" style="border-bottom:0;">
+    <div class="wrap">
+      <div class="dl-strip">
+        <div>
+          <h3>天天影视网分类清单</h3>
+          <p>整理电影、电视剧、综艺、动漫四个分类的题材索引与片库精选条目，便于离线对照浏览路径。</p>
+        </div>
+        <a class="dl-btn" href="#" data-download-placeholder="true" aria-disabled="true" tabindex="-1">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 3v12M7 11l5 5 5-5M4 21h16"/></svg>
+          下载
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#182030"/>
+            <path d="M22 18v28l24-14z" fill="#f5b942"/>
+          </svg>
+          <span>天天影视网</span>
+        </div>
+        <p>天天影视网首页，按电影、电视剧、综艺、动漫四类组织片库，提供分类浏览、热播排行与片名筛选入口。</p>
+      </div>
+      <div>
+        <h4>站内导航</h4>
+        <ul class="foot-links">
+          <li><a href="#categories">影视分类</a></li>
+          <li><a href="#ranking">热播排行</a></li>
+          <li><a href="#picks">片库精选</a></li>
+          <li><a href="#about">站点说明</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>使用提示</h4>
+        <ul class="foot-links">
+          <li><a href="#faq">常见疑问</a></li>
+          <li><a href="#picks">按类型筛选</a></li>
+          <li><a href="#ranking">排行更新说明</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 天天影视网 · 影视分类浏览入口</span>
+      <span>内容以站内片库为准，排行按日更新</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var menuBtn = document.getElementById('menuBtn');
+  var navMain = document.getElementById('navMain');
+  if(menuBtn && navMain){
+    menuBtn.addEventListener('click', function(){
+      var open = navMain.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    navMain.addEventListener('click', function(e){
+      if(e.target.tagName === 'A'){
+        navMain.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded','false');
+      }
+    });
+  }
+
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.chip'));
+  var grid = document.getElementById('pickGrid');
+  var cards = Array.prototype.slice.call(grid.querySelectorAll('.pick-card'));
+  var noResult = document.getElementById('noResult');
+  var pickSearch = document.getElementById('pickSearch');
+  var quickSearch = document.getElementById('quickSearch');
+  var quickBtn = document.getElementById('quickSearchBtn');
+  var currentCat = 'all';
+
+  function applyFilter(){
+    var kw = (pickSearch.value || '').trim().toLowerCase();
+    var shown = 0;
+    cards.forEach(function(card){
+      var catOk = currentCat === 'all' || card.dataset.cat === currentCat;
+      var name = (card.dataset.title || '').toLowerCase();
+      var textOk = !kw || name.indexOf(kw) !== -1;
+      var show = catOk && textOk;
+      card.style.display = show ? '' : 'none';
+      if(show) shown++;
+    });
+    noResult.style.display = shown === 0 ? 'block' : 'none';
+  }
+
+  chips.forEach(function(chip){
+    chip.addEventListener('click', function(){
+      chips.forEach(function(c){ c.classList.remove('active'); });
+      chip.classList.add('active');
+      currentCat = chip.dataset.cat;
+      applyFilter();
+    });
+  });
+
+  pickSearch.addEventListener('input', applyFilter);
+
+  if(quickBtn && quickSearch){
+    function goSearch(){
+      var v = quickSearch.value.trim();
+      if(v){
+        pickSearch.value = v;
+        currentCat = 'all';
+        chips.forEach(function(c){ c.classList.toggle('active', c.dataset.cat === 'all'); });
+        applyFilter();
+        document.getElementById('picks').scrollIntoView({behavior:'smooth'});
+      }
+    }
+    quickBtn.addEventListener('click', goSearch);
+    quickSearch.addEventListener('keydown', function(e){
+      if(e.key === 'Enter'){ e.preventDefault(); goSearch(); }
+    });
+  }
+})();
+</script>
+</body>
+  </html>
