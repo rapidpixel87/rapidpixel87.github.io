@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>91次元免费在线观看-次元动漫免费在线观看_番剧新番在线播放</title>
+<meta name="description" content="91次元免费在线观看首页，聚合次元动漫、番剧新番与剧场版在线播放入口，按题材与更新节奏浏览，免登录直达观看页面。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230f1226'/%3E%3Ccircle cx='32' cy='32' r='17' fill='none' stroke='%235be0c8' stroke-width='4'/%3E%3Cpath d='M27 24l14 8-14 8z' fill='%23ff7a9c'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#0b0e1c;
+  --bg-soft:#11152a;
+  --card:#151a33;
+  --line:rgba(120,140,200,.18);
+  --text:#e8ecf8;
+  --muted:#9aa4c4;
+  --mint:#5be0c8;
+  --pink:#ff7a9c;
+  --violet:#8f7bff;
+  --radius:16px;
+  --max:1160px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+  background:radial-gradient(1200px 600px at 80% -10%,rgba(143,123,255,.22),transparent 60%),radial-gradient(900px 500px at 0% 0%,rgba(91,224,200,.14),transparent 55%),var(--bg);
+  color:var(--text);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+
+/* 页头 */
+header.site{
+  position:sticky;top:0;z-index:50;
+  backdrop-filter:blur(14px);
+  background:rgba(11,14,28,.82);
+  border-bottom:1px solid var(--line);
+}
+.head-inner{display:flex;align-items:center;gap:24px;height:68px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.5px;font-size:16px;white-space:nowrap}
+.logo svg{width:30px;height:30px;flex:none}
+.logo span{background:linear-gradient(90deg,var(--mint),var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent}
+nav.main{margin-left:auto;display:flex;gap:22px;font-size:14px;color:var(--muted)}
+nav.main a{padding:6px 0;border-bottom:2px solid transparent;transition:.2s}
+nav.main a:hover{color:var(--text);border-bottom-color:var(--mint)}
+.head-cta{
+  font-size:14px;padding:8px 16px;border-radius:999px;
+  background:linear-gradient(90deg,var(--mint),var(--violet));
+  color:#0b0e1c;font-weight:700;white-space:nowrap;
+}
+
+/* 首屏 */
+.hero{padding:64px 0 48px;position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.tagline{
+  display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--mint);
+  border:1px solid rgba(91,224,200,.35);border-radius:999px;padding:5px 14px;margin-bottom:20px;
+}
+h1{
+  font-size:clamp(30px,4.6vw,52px);line-height:1.18;font-weight:800;letter-spacing:.5px;
+  background:linear-gradient(100deg,#ffffff 10%,var(--mint) 55%,var(--violet) 95%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  margin-bottom:20px;
+}
+.hero p.lead{color:var(--muted);font-size:16px;max-width:560px;margin-bottom:28px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:8px;
+  background:linear-gradient(90deg,var(--pink),var(--violet));
+  color:#fff;font-weight:700;padding:13px 26px;border-radius:12px;font-size:15px;
+  box-shadow:0 10px 30px rgba(143,123,255,.32);transition:transform .2s;
+}
+.btn-primary:hover{transform:translateY(-2px)}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:8px;
+  border:1px solid var(--line);padding:12px 22px;border-radius:12px;font-size:15px;color:var(--text);
+  transition:.2s;
+}
+.btn-ghost:hover{border-color:var(--mint);color:var(--mint)}
+.hero-stats{display:flex;gap:34px;margin-top:36px;flex-wrap:wrap}
+.hero-stats div{font-size:13px;color:var(--muted)}
+.hero-stats strong{display:block;font-size:22px;color:var(--text);font-weight:800;letter-spacing:.5px}
+
+/* 首屏视觉 */
+.hero-art{
+  position:relative;border-radius:24px;overflow:hidden;
+  border:1px solid var(--line);
+  background:linear-gradient(160deg,rgba(143,123,255,.22),rgba(91,224,200,.08) 60%,transparent);
+  padding:26px;
+}
+.hero-art::after{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(240px 240px at 85% 15%,rgba(255,122,156,.22),transparent 70%);
+  pointer-events:none;
+}
+.screen{
+  border-radius:16px;background:#080b16;border:1px solid var(--line);
+  aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;position:relative;
+}
+.screen .play{
+  width:64px;height:64px;border-radius:50%;
+  background:linear-gradient(135deg,var(--mint),var(--violet));
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 0 0 8px rgba(91,224,200,.12);
+}
+.screen .play svg{width:26px;height:26px;margin-left:3px}
+.screen .bar{
+  position:absolute;left:14px;right:14px;bottom:12px;height:4px;border-radius:4px;background:rgba(255,255,255,.12);
+}
+.screen .bar i{display:block;width:42%;height:100%;border-radius:4px;background:linear-gradient(90deg,var(--mint),var(--pink))}
+.hero-art .caption{margin-top:16px;font-size:13px;color:var(--muted);display:flex;justify-content:space-between;gap:12px}
+
+/* 通用分区 */
+section{padding:56px 0}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:30px;flex-wrap:wrap}
+.sec-head h2{font-size:clamp(22px,2.6vw,30px);font-weight:800;letter-spacing:.5px}
+.sec-head h2 em{font-style:normal;color:var(--mint)}
+.sec-head p{font-size:14px;color:var(--muted);max-width:560px}
+.sec-head .more{font-size:14px;color:var(--mint);white-space:nowrap}
+
+/* 检索条 */
+.searchbar{
+  display:flex;gap:10px;flex-wrap:wrap;background:var(--bg-soft);
+  border:1px solid var(--line);border-radius:14px;padding:10px;margin-bottom:28px;
+}
+.searchbar input{
+  flex:1 1 220px;min-width:0;background:#0a0e1d;border:1px solid var(--line);
+  border-radius:10px;padding:11px 14px;color:var(--text);font-size:14px;outline:none;
+}
+.searchbar input:focus{border-color:var(--mint)}
+.searchbar select{
+  background:#0a0e1d;border:1px solid var(--line);border-radius:10px;
+  padding:11px 12px;color:var(--text);font-size:14px;outline:none;
+}
+.searchbar button{
+  background:linear-gradient(90deg,var(--mint),var(--violet));border:none;color:#0b0e1c;
+  font-weight:700;padding:11px 22px;border-radius:10px;font-size:14px;cursor:pointer;
+}
+
+/* 卡片网格 */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,border-color .2s;
+}
+.card:hover{transform:translateY(-4px);border-color:rgba(91,224,200,.45)}
+.card .thumb{
+  aspect-ratio:16/9;position:relative;display:flex;align-items:flex-end;padding:14px;
+  background:linear-gradient(150deg,rgba(143,123,255,.35),rgba(91,224,200,.16));
+}
+.card .thumb b{
+  font-size:12px;font-weight:600;background:rgba(8,11,22,.72);
+  border:1px solid var(--line);border-radius:999px;padding:3px 10px;color:var(--mint);
+}
+.card .body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card h3{font-size:16px;font-weight:700}
+.card p{font-size:13.5px;color:var(--muted);flex:1}
+.card .meta{display:flex;justify-content:space-between;font-size:12.5px;color:#7d88aa;border-top:1px solid var(--line);padding-top:10px}
+
+/* 列表 */
+.list{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.list-item{
+  display:flex;gap:14px;align-items:flex-start;background:var(--bg-soft);
+  border:1px solid var(--line);border-radius:14px;padding:16px 18px;
+}
+.list-item .idx{
+  flex:none;width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:14px;color:#0b0e1c;background:linear-gradient(135deg,var(--mint),var(--violet));
+}
+.list-item h3{font-size:15px;margin-bottom:4px}
+.list-item p{font-size:13px;color:var(--muted)}
+
+/* 双栏正文 */
+.split{display:grid;grid-template-columns:1.25fr .75fr;gap:36px;align-items:start}
+.prose h2{font-size:24px;margin-bottom:16px;font-weight:800}
+.prose h3{font-size:17px;margin:22px 0 8px;color:var(--mint)}
+.prose p{font-size:15px;color:#c3cbe4;margin-bottom:12px}
+.aside{
+  background:var(--bg-soft);border:1px solid var(--line);border-radius:var(--radius);padding:22px;
+}
+.aside h3{font-size:16px;margin-bottom:14px}
+.aside ul{list-style:none;display:flex;flex-direction:column;gap:12px;font-size:14px;color:var(--muted)}
+.aside ul li{display:flex;gap:10px;align-items:flex-start}
+.aside ul li::before{content:"";flex:none;width:6px;height:6px;border-radius:50%;margin-top:9px;background:var(--pink)}
+.aside .note{font-size:12.5px;color:#7d88aa;margin-top:16px;border-top:1px solid var(--line);padding-top:14px}
+
+/* 下载/入口块 */
+.cta-band{
+  border-radius:20px;border:1px solid var(--line);padding:36px;
+  background:linear-gradient(120deg,rgba(91,224,200,.14),rgba(143,123,255,.18) 60%,rgba(255,122,156,.12));
+  display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;
+}
+.cta-band h2{font-size:24px;margin-bottom:8px}
+.cta-band p{font-size:14px;color:#c3cbe4;max-width:560px}
+.cta-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn-download{
+  display:inline-flex;align-items:center;gap:8px;
+  background:linear-gradient(90deg,var(--mint),var(--violet));color:#0b0e1c;font-weight:700;
+  padding:13px 26px;border-radius:12px;font-size:15px;pointer-events:none;opacity:.92;
+}
+
+/* FAQ */
+.faq{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.faq details{
+  background:var(--bg-soft);border:1px solid var(--line);border-radius:14px;padding:18px 20px;
+}
+.faq summary{cursor:pointer;font-size:15px;font-weight:700;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";float:right;color:var(--mint);font-weight:800}
+.faq details[open] summary::after{content:"−"}
+.faq p{font-size:13.5px;color:var(--muted);margin-top:10px}
+
+/* 页尾 */
+footer.site{
+  border-top:1px solid var(--line);margin-top:40px;padding:40px 0 30px;background:rgba(8,11,22,.6);
+}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px;margin-bottom:26px}
+.foot-grid h4{font-size:14px;margin-bottom:12px;color:var(--text)}
+.foot-grid p,.foot-grid a{font-size:13px;color:var(--muted)}
+.foot-grid ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.foot-grid a:hover{color:var(--mint)}
+.foot-logo{display:flex;align-items:center;gap:10px;font-weight:700;margin-bottom:12px}
+.foot-logo svg{width:26px;height:26px}
+.copyright{border-top:1px solid var(--line);padding-top:18px;font-size:12.5px;color:#6f7a9c;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+
+@media (max-width:960px){
+  .hero-grid,.split,.foot-grid{grid-template-columns:1fr}
+  .grid{grid-template-columns:1fr 1fr}
+  nav.main{display:none}
+  .head-inner{height:62px}
+}
+@media (max-width:640px){
+  .hero{padding:40px 0 32px}
+  section{padding:40px 0}
+  .grid,.list,.faq{grid-template-columns:1fr}
+  .hero-stats{gap:22px}
+  .cta-band{padding:26px}
+  .head-cta{padding:7px 13px;font-size:13px}
+  .logo{font-size:14px}
+  .logo svg{width:26px;height:26px}
+}
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap head-inner">
+    <a class="logo" href="#top" aria-label="91次元免费在线观看首页">
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="16" fill="#0f1226"/>
+        <circle cx="32" cy="32" r="17" fill="none" stroke="#5be0c8" stroke-width="4"/>
+        <path d="M27 24l14 8-14 8z" fill="#ff7a9c"/>
+      </svg>
+      <span>91次元免费在线观看</span>
+    </a>
+    <nav class="main" aria-label="主导航">
+      <a href="#library">番剧库</a>
+      <a href="#playlist">今日推荐</a>
+      <a href="#howto">观看说明</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+    <a class="head-cta" href="#library">开始观看</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- 首屏 -->
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="tagline">次元动漫 · 番剧新番 · 免登录直达</span>
+        <h1>91次元免费在线观看</h1>
+        <p class="lead">91次元免费在线观看把次元动漫、番剧新番与剧场版汇总在同一入口，按题材、更新节奏与热度筛选，点开即进入播放页，无需注册即可浏览片单。</p>
+        <div class="hero-actions">
+          <a class="btn-primary" href="#library">进入番剧库
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="btn-ghost" href="#playlist">查看今日推荐</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>6 类</strong>题材分区</div>
+          <div><strong>每日</strong>更新新番</div>
+          <div><strong>免登录</strong>直接播放</div>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="screen">
+          <div class="play">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M8 5l11 7-11 7z" fill="#0b0e1c"/></svg>
+          </div>
+          <div class="bar"><i></i></div>
+        </div>
+        <div class="caption"><span>次元番剧 · 播放页预览</span><span>1080P</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 番剧库 -->
+  <section id="library">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2>次元番剧库 <em>按题材挑片</em></h2>
+          <p>把常见题材拆成独立分区，先选类型再选片，比一页翻到底更快找到想看的番。</p>
+        </div>
+        <a class="more" href="#playlist">跳到今日推荐 →</a>
+      </div>
+
+      <div class="searchbar" role="search">
+        <input id="kw" type="search" placeholder="搜索番剧名称，例如「异世界」「校园」" aria-label="搜索番剧名称">
+        <select id="cat" aria-label="选择题材">
+          <option value="">全部题材</option>
+          <option value="奇幻">奇幻</option>
+          <option value="校园">校园</option>
+          <option value="热血">热血</option>
+          <option value="日常">日常</option>
+          <option value="科幻">科幻</option>
+        </select>
+        <button type="button" id="doSearch">筛选</button>
+      </div>
+      <p id="searchHint" style="font-size:13px;color:var(--muted);margin:-14px 0 22px"></p>
+
+      <div class="grid" id="cardGrid">
+        <article class="card" data-cat="奇幻" data-name="异世界冒险">
+          <div class="thumb"><b>奇幻 · 连载中</b></div>
+          <div class="body">
+            <h3>异世界冒险</h3>
+            <p>穿越设定配合任务线推进，每集结尾留悬念，适合连续追更。</p>
+            <div class="meta"><span>每周更新</span><span>24 集</span></div>
+          </div>
+        </article>
+        <article class="card" data-cat="校园" data-name="青春校园日常">
+          <div class="thumb"><b>校园 · 已完结</b></div>
+          <div class="body">
+            <h3>青春校园日常</h3>
+            <p>以社团活动为主线的轻喜剧，节奏舒缓，单集可独立观看。</p>
+            <div class="meta"><span>全集可看</span><span>12 集</span></div>
+          </div>
+        </article>
+        <article class="card" data-cat="热血" data-name="少年热血番">
+          <div class="thumb"><b>热血 · 连载中</b></div>
+          <div class="body">
+            <h3>少年热血番</h3>
+            <p>战斗场面占比高，剧情按篇章推进，建议从第一集顺序观看。</p>
+            <div class="meta"><span>每周更新</span><span>36 集</span></div>
+          </div>
+        </article>
+        <article class="card" data-cat="日常" data-name="治愈日常物语">
+          <div class="thumb"><b>日常 · 已完结</b></div>
+          <div class="body">
+            <h3>治愈日常物语</h3>
+            <p>单元剧结构，画风柔和，适合睡前或碎片时间一集一集看。</p>
+            <div class="meta"><span>全集可看</span><span>13 集</span></div>
+          </div>
+        </article>
+        <article class="card" data-cat="科幻" data-name="星海科幻纪">
+          <div class="thumb"><b>科幻 · 连载中</b></div>
+          <div class="body">
+            <h3>星海科幻纪</h3>
+            <p>以太空航行为背景的群像故事，世界观设定集中在前三集交代。</p>
+            <div class="meta"><span>每周更新</span><span>20 集</span></div>
+          </div>
+        </article>
+        <article class="card" data-cat="奇幻" data-name="妖怪物语">
+          <div class="thumb"><b>奇幻 · 剧场版</b></div>
+          <div class="body">
+            <h3>妖怪物语</h3>
+            <p>单部剧场版作品，独立成篇，不依赖前作也能完整看懂。</p>
+            <div class="meta"><span>剧场版</span><span>约 110 分钟</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 今日推荐 -->
+  <section id="playlist">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2>今日推荐 <em>新番与补番</em></h2>
+          <p>按更新节奏与观看门槛分组，新番跟更与补旧番各走一条线，避免选片时来回跳。</p>
+        </div>
+      </div>
+      <div class="list">
+        <div class="list-item">
+          <div class="idx">1</div>
+          <div><h3>本周新番跟更</h3><p>更新集中在工作日晚间，适合按集追更，错过一集可在番剧库按集数回看。</p></div>
+        </div>
+        <div class="list-item">
+          <div class="idx">2</div>
+          <div><h3>已完结补番</h3><p>一次性放出的完整剧集，按顺序连看更顺，适合周末集中刷完。</p></div>
+        </div>
+        <div class="list-item">
+          <div class="idx">3</div>
+          <div><h3>剧场版单片</h3><p>独立成篇，单次观看即可完结，不占用长期追更时间。</p></div>
+        </div>
+        <div class="list-item">
+          <div class="idx">4</div>
+          <div><h3>高热度回看</h3><p>讨论度较高的作品集中展示，方便从热门作品切入次元番剧。</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 观看说明 + 侧栏 -->
+  <section id="howto">
+    <div class="wrap split">
+      <div class="prose">
+        <h2>91次元免费在线观看怎么用</h2>
+        <p>进入首页后，先在番剧库按题材缩小范围，再用搜索框输入番剧名称或关键词，筛选结果会直接留在当前页面。选中作品后进入播放页，剧集以列表形式排列，按集数顺序点击即可。</p>
+        <h3>先定题材，再定集数</h3>
+        <p>题材决定内容基调，集数决定投入时间。连载中的作品适合跟更，已完结的作品适合连看，剧场版则适合一次看完。91次元免费在线观看把这三类分开呈现，减少选片时的犹豫。</p>
+        <h3>更新节奏与观看习惯</h3>
+        <p>新番通常按周更新，建议收藏对应作品页，更新后从剧集列表末尾进入最新一集。补番则从第一集开始，避免因跳集导致剧情衔接不上。播放页只保留播放与选集两类操作，界面尽量简洁。</p>
+        <h3>搜索与筛选的用法</h3>
+        <p>搜索框支持番剧名称与题材关键词，例如输入「奇幻」可筛出同题材作品；题材下拉框与关键词可组合使用，结果会实时显示在卡片区域，并提示当前匹配数量。</p>
+      </div>
+      <aside class="aside">
+        <h3>观看前须知</h3>
+        <ul>
+          <li>页面以浏览与选集为主，免注册即可进入播放页。</li>
+          <li>连载作品更新后，剧集列表会新增对应集数。</li>
+          <li>剧场版为单片内容，与连载剧集分开归类。</li>
+          <li>筛选结果仅作用于当前页卡片，不跳转新页面。</li>
+        </ul>
+        <p class="note">提示：本页展示的番剧名称为示例条目，用于说明分区与筛选方式，实际片单以站内更新为准。</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 下载 / 入口 -->
+  <section>
+    <div class="wrap">
+      <div class="cta-band">
+        <div>
+          <h2>把次元番剧入口放到桌面</h2>
+          <p>下载站内入口说明文件，保留番剧库与今日推荐的直达链接，下次打开不必重新搜索。文件提供后即可替换为正式地址。</p>
+        </div>
+        <div class="cta-actions">
+          <a class="btn-download" href="#" data-download-placeholder="true" aria-disabled="true" tabindex="-1">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 19h14" stroke="#0b0e1c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            下载
+          </a>
+          <a class="btn-ghost" href="#library">先看番剧库</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2>常见问题</h2>
+          <p>关于91次元免费在线观看的浏览方式、更新节奏与选集操作，集中回答。</p>
+        </div>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>需要注册账号才能看吗？</summary>
+          <p>浏览番剧库与进入播放页不需要注册，直接点击作品卡片即可进入对应播放页。</p>
+        </details>
+        <details>
+          <summary>新番多久更新一集？</summary>
+          <p>连载作品按周更新，具体更新时间以剧集列表新增的集数为准，更新后可从最后一集进入。</p>
+        </details>
+        <details>
+          <summary>怎么快速找到想看的番？</summary>
+          <p>在番剧库使用搜索框输入名称或题材关键词，配合题材下拉框组合筛选，结果会显示在当前页面。</p>
+        </details>
+        <details>
+          <summary>剧场版和连载剧集分开吗？</summary>
+          <p>分开归类。剧场版为独立单片，不依赖前作；连载剧集按集数顺序排列，建议从第一集开始。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="16" fill="#0f1226"/>
+            <circle cx="32" cy="32" r="17" fill="none" stroke="#5be0c8" stroke-width="4"/>
+            <path d="M27 24l14 8-14 8z" fill="#ff7a9c"/>
+          </svg>
+          <span>91次元免费在线观看</span>
+        </div>
+        <p>聚合次元动漫、番剧新番与剧场版的在线观看入口，按题材与更新节奏组织片单，免登录即可浏览。</p>
+      </div>
+      <div>
+        <h4>内容分区</h4>
+        <ul>
+          <li><a href="#library">番剧库</a></li>
+          <li><a href="#playlist">今日推荐</a></li>
+          <li><a href="#howto">观看说明</a></li>
+          <li><a href="#faq">常见问题</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>站内提示</h4>
+        <ul>
+          <li>页面示例条目用于说明分区</li>
+          <li>片单以站内实际更新为准</li>
+          <li>下载入口待替换正式地址</li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">
+      <span>© 91次元免费在线观看 · 次元番剧在线浏览</span>
+      <span>本站内容仅作页面展示与导航说明</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var grid = document.getElementById('cardGrid');
+  var kw = document.getElementById('kw');
+  var cat = document.getElementById('cat');
+  var hint = document.getElementById('searchHint');
+  var btn = document.getElementById('doSearch');
+  var cards = Array.prototype.slice.call(grid.querySelectorAll('.card'));
+
+  function run(){
+    var k = kw.value.trim().toLowerCase();
+    var c = cat.value;
+    var shown = 0;
+    cards.forEach(function(card){
+      var name = (card.getAttribute('data-name') || '').toLowerCase();
+      var cardCat = card.getAttribute('data-cat') || '';
+      var okKw = !k || name.indexOf(k) > -1 || cardCat.toLowerCase().indexOf(k) > -1;
+      var okCat = !c || cardCat === c;
+      var ok = okKw && okCat;
+      card.style.display = ok ? '' : 'none';
+      if(ok) shown++;
+    });
+    hint.textContent = (k || c) ? ('当前匹配 ' + shown + ' 部作品') : '共 ' + cards.length + ' 部示例作品，可按题材或名称筛选';
+  }
+
+  btn.addEventListener('click', run);
+  kw.addEventListener('input', run);
+  cat.addEventListener('change', run);
+  run();
+})();
+</script>
+
+</body>
+  </html>
